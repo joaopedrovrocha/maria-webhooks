@@ -1,5 +1,5 @@
 import 'dotenv'
-import { configs } from './configs'
+import { configs } from './configs';
 
 import app from './server'
 
