@@ -24,7 +24,7 @@ jobs:
 
       - name: install dependencies
         run: |
-          npm install --legacy-peer-deps --force
+          npm install
 
       - name: build
         run: |
