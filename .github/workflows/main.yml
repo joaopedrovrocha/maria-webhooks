@@ -64,7 +64,7 @@ jobs:
           image: joaopedrovrocha/node-ts:latest
           run: |
             echo "running the docker image"
-            echo "Testing the nodejs app endpoints:
+            echo "Testing the nodejs app endpoints"
             echo ${{ steps.docker_build.outputs.digest }}
 
   deploy_to_heroku:
