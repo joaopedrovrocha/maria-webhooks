@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-ts
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-ts
+  template:
+    metadata:
+      labels:
+        app: node-ts
+    spec:
+      containers:
+        - name: node-ts
+          image: joaopedrovrocha/node-ts:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 30001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-ts
+spec:
+  type: LoadBalancer
+  selector:
+    app: node-ts
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 30001
+    - name: https
+      protocol: TCP
+      port: 433
+      targetPort: 30001
