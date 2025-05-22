@@ -1,9 +1,11 @@
-import { Router, Request, Response } from "express"
+import { Request, Response, Router } from 'express'
 
 const routes = Router()
 
-routes.get('/', (req: Request, res: Response) => {
-  return res.status(200).json({ data: 'Hello, World!' })
+routes.post('/webhooks/receive', (req: Request, res: Response) => {
+  console.log('req.body', req.body)
+
+  return res.status(200).end()
 })
 
 export default routes
